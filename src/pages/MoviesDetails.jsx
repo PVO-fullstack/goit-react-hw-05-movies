@@ -1,4 +1,4 @@
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMoviById } from 'services/Api';
 import { MoviesItem } from 'components/MoviesItem/MoviesItem';
@@ -6,9 +6,6 @@ import { MoviesItem } from 'components/MoviesItem/MoviesItem';
 export const MoviesDetails = () => {
   const { movieId } = useParams();
   const [film, setFilm] = useState({});
-  const location = useLocation();
-
-  console.log(Location);
 
   useEffect(() => {
     if (movieId === '') {
@@ -36,7 +33,7 @@ export const MoviesDetails = () => {
 
     return (
       <div>
-        <Link to={location.state.from}>Back to collection</Link>
+        {/* <Link to={location.state.from}>Go back</Link> */}
         <MoviesItem
           title={title}
           overview={overview}

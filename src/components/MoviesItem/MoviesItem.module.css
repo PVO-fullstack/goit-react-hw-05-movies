@@ -2,3 +2,18 @@
   display: flex;
   gap: 30px;
 }
+
+.go_back {
+  width: 70px;
+  text-align: center;
+  background-color: antiquewhite;
+  margin-bottom: 10px;
+}
+
+.go_back:active {
+  background-color: blue;
+}
+
+.link_back {
+  text-decoration: none;
+}
