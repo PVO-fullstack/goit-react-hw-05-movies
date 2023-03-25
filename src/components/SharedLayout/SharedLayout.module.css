@@ -1,0 +1,6 @@
+.nav_conteiner {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  background-color: aquamarine;
+}

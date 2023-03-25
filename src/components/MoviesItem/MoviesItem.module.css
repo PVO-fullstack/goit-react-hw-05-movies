@@ -1,0 +1,4 @@
+.film_conteiner {
+  display: flex;
+  gap: 30px;
+}
