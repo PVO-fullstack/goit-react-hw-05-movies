@@ -16,12 +16,21 @@ export const Cast = () => {
     <div>
       <ul className={css.cast_list}>
         {cast.map(actor => (
-          <li key={actor.id}>
-            <img
-              src={`${baseUrl}${actor.profile_path}`}
-              alt={actor.name}
-              width="100px"
-            />
+          <li className={css.cast_item} key={actor.id}>
+            {actor.profile_path ? (
+              <img
+                src={`${baseUrl}${actor.profile_path}`}
+                alt={actor.name}
+                width="100px"
+              />
+            ) : (
+              <img
+                src="https://dummyimage.com/640x480/2a2a2a/ffffff&text=No Photo"
+                alt={actor.name}
+                width="100px"
+                height="150px"
+              />
+            )}
             <p>{actor.name}</p>
             <p>{actor.character}</p>
           </li>

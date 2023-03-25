@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import css from '../MoviesItem/MoviesItem.module.css';
 
-export const MoviesItem = ({ title, overview, genresName, poster }) => {
-  const baseUrl = 'https://image.tmdb.org/t/p/w500';
+const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
+export const MoviesItem = ({ title, overview, genresName, poster }) => {
   return (
     <>
       <div className={css.film_conteiner}>

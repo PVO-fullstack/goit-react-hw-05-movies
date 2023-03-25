@@ -1,6 +1,8 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 export const MoviesList = ({ films, submit }) => {
+  const location = useLocation();
+
   return (
     <div>
       <h1>Movies</h1>
@@ -13,7 +15,7 @@ export const MoviesList = ({ films, submit }) => {
         {films.length > 0 &&
           films.map(film => (
             <li key={film.id}>
-              <NavLink to={`${film.id}`}>
+              <NavLink to={`${film.id}`} state={{ from: location }}>
                 {film.original_title || film.original_name}
               </NavLink>
             </li>

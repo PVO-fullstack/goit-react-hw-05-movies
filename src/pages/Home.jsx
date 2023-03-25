@@ -1,15 +1,19 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { getTrending } from 'services/Api';
 
 export const Home = () => {
   const [films, setFilms] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
-    getTrending().then(r => {
-      const result = r.results;
-      setFilms(result);
-    });
+    async function getTrendingFilms() {
+      await getTrending().then(r => {
+        const result = r.results;
+        setFilms(result);
+      });
+    }
+    getTrendingFilms();
   }, []);
 
   return (
@@ -18,7 +22,7 @@ export const Home = () => {
       <ul>
         {films.map(film => (
           <li key={film.id}>
-            <NavLink to={`movies/${film.id}`}>
+            <NavLink to={`movies/${film.id}`} state={{ from: location }}>
               {film.original_title || film.original_name}
             </NavLink>
           </li>
