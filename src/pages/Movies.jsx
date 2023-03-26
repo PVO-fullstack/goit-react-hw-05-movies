@@ -9,10 +9,7 @@ export const Movies = () => {
   const moviesId = searchParams.get('moviesId') ?? '';
 
   useEffect(() => {
-    async function getFilmsList() {
-      await getMovies(moviesId).then(r => setFilms(r.results));
-    }
-    getFilmsList();
+    getMovies(moviesId).then(r => setFilms(r.results));
   }, [moviesId]);
 
   const submit = e => {

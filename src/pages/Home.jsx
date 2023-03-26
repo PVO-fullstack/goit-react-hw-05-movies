@@ -7,13 +7,10 @@ export const Home = () => {
   const location = useLocation();
 
   useEffect(() => {
-    async function getTrendingFilms() {
-      await getTrending().then(r => {
-        const result = r.results;
-        setFilms(result);
-      });
-    }
-    getTrendingFilms();
+    getTrending().then(r => {
+      const result = r.results;
+      setFilms(result);
+    });
   }, []);
 
   return (

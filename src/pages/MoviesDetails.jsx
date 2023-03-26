@@ -11,13 +11,10 @@ export const MoviesDetails = () => {
     if (movieId === '') {
       return;
     }
-    async function getFilmById() {
-      await getMoviById(movieId).then(r => {
-        const result = r;
-        setFilm(result);
-      });
-    }
-    getFilmById();
+    getMoviById(movieId).then(r => {
+      const result = r;
+      setFilm(result);
+    });
   }, [movieId]);
 
   let genresName = [];
@@ -33,7 +30,6 @@ export const MoviesDetails = () => {
 
     return (
       <div>
-        {/* <Link to={location.state.from}>Go back</Link> */}
         <MoviesItem
           title={title}
           overview={overview}
