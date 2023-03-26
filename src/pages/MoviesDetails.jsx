@@ -1,9 +1,9 @@
 import { Outlet, useParams } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { getMoviById } from 'services/Api';
-import { MoviesItem } from 'components/MoviesItem/MoviesItem';
+import MoviesItem from 'components/MoviesItem/MoviesItem';
 
-export const MoviesDetails = () => {
+const MoviesDetails = () => {
   const { movieId } = useParams();
   const [film, setFilm] = useState({});
 
@@ -36,8 +36,12 @@ export const MoviesDetails = () => {
           genresName={genresName}
           poster={poster_path}
         />
-        <Outlet />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </div>
     );
   }
 };
+
+export default MoviesDetails;

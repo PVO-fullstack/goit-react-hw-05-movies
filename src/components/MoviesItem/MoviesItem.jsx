@@ -4,7 +4,7 @@ import css from '../MoviesItem/MoviesItem.module.css';
 
 const baseUrl = 'https://image.tmdb.org/t/p/w500';
 
-export const MoviesItem = ({ title, overview, genresName, poster }) => {
+const MoviesItem = ({ title, overview, genresName, poster }) => {
   const location = useLocation();
   const backLinkLocation = useRef(location.state?.from || '/movies');
 
@@ -42,3 +42,5 @@ export const MoviesItem = ({ title, overview, genresName, poster }) => {
     </>
   );
 };
+
+export default MoviesItem;

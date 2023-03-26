@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { getTrending } from 'services/Api';
 
-export const Home = () => {
+const Home = () => {
   const [films, setFilms] = useState([]);
   const location = useLocation();
 
@@ -28,3 +28,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;
