@@ -4,10 +4,11 @@
 }
 
 .go_back {
-  width: 70px;
+  width: 90px;
   text-align: center;
   background-color: antiquewhite;
-  margin-bottom: 10px;
+  margin: 20px 0;
+  padding: 10px 0;
 }
 
 .go_back:active {

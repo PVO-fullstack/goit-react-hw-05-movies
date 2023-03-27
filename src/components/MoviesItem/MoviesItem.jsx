@@ -12,7 +12,7 @@ const MoviesItem = ({ title, overview, genresName, poster }) => {
     <>
       <div className={css.go_back}>
         <Link className={css.link_back} to={backLinkLocation.current}>
-          Go back
+          ← Go back
         </Link>
       </div>
       <div className={css.film_conteiner}>
