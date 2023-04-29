@@ -21,7 +21,7 @@ export const getMoviById = async Id => {
     const response = await axios.get(`/movie/${Id}?api_key=${key}`);
     return response.data;
   } catch (error) {
-    console.log('AAAAAAAAAAAAAA');
+    console.log('Ups');
   }
 };
 

@@ -2,7 +2,6 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'services/Api';
 import MoviesList from 'components/MoviesList/MoviesList';
-import NotFound from './NotFound';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
@@ -22,11 +21,7 @@ const Movies = () => {
 
   return (
     <div>
-      {films.length > 0 ? (
-        <MoviesList films={films} submit={submit} />
-      ) : (
-        <NotFound />
-      )}
+      <MoviesList films={films} submit={submit} />
     </div>
   );
 };
