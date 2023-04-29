@@ -2,6 +2,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState, Suspense } from 'react';
 import { getMoviById } from 'services/Api';
 import MoviesItem from 'components/MoviesItem/MoviesItem';
+import NotFound from './NotFound';
 
 const MoviesDetails = () => {
   const { movieId } = useParams();
@@ -11,8 +12,7 @@ const MoviesDetails = () => {
     if (movieId === '') {
       return;
     }
-    getMoviById(movieId).then(r => {
-      const result = r;
+    getMoviById(movieId).then(result => {
       setFilm(result);
     });
   }, [movieId]);
@@ -36,12 +36,15 @@ const MoviesDetails = () => {
           genresName={genresName}
           poster={poster_path}
         />
+
         <Suspense fallback={<div>Loading...</div>}>
           <Outlet />
         </Suspense>
       </div>
     );
   }
+  // console.log('AAAAAAAA');
+  return <NotFound />;
 };
 
 export default MoviesDetails;

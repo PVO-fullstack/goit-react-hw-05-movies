@@ -2,11 +2,14 @@ import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'services/Api';
 import MoviesList from 'components/MoviesList/MoviesList';
+import NotFound from './NotFound';
 
 const Movies = () => {
   const [films, setFilms] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const moviesId = searchParams.get('moviesId') ?? '';
+
+  console.log(films);
 
   useEffect(() => {
     getMovies(moviesId).then(r => setFilms(r.results));
@@ -19,7 +22,11 @@ const Movies = () => {
 
   return (
     <div>
-      <MoviesList films={films} submit={submit} />
+      {films.length > 0 ? (
+        <MoviesList films={films} submit={submit} />
+      ) : (
+        <NotFound />
+      )}
     </div>
   );
 };

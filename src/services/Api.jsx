@@ -17,8 +17,12 @@ export const getMovies = async query => {
 };
 
 export const getMoviById = async Id => {
-  const response = await axios.get(`/movie/${Id}?api_key=${key}`);
-  return response.data;
+  try {
+    const response = await axios.get(`/movie/${Id}?api_key=${key}`);
+    return response.data;
+  } catch (error) {
+    console.log('AAAAAAAAAAAAAA');
+  }
 };
 
 export const getCastById = async Id => {
